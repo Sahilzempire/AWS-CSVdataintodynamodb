@@ -1,5 +1,5 @@
 AWS Data Engineering projects.
-Welcome to Project 1 in AWS Data engineering projects series.
+Welcome to Project 1 in AWS Data engineering projects series.(Download RAW file, if file showing any error)
 
 This is basic level Data Engg project that aims to "**To import CSV data into DynamoDB using Lambda and S3 Event Triggers**"
 
