@@ -24,3 +24,36 @@ DynamoDB
 **Pre-requisites:**
 • AWS user account with admin access, not a root account.
 • Create an IAM role (For the details and steps on this, follow the PDF I have attached)
+
+**The python code do the following:
+▪ Imports the CSV file from S3 bucket.
+▪ Splits the CSV data into multiple strings.
+▪ Uploads data into the DynamoDB table.**
+
+import boto3
+s3_client = boto3.client("s3")
+dynamodb = boto3.resource("dynamodb")
+ 
+table = dynamodb.Table("FriendsDDB")
+ 
+def lambda_handler(event, context):
+    bucket_name = event['Records'][0]['s3']['bucket']['name']
+    s3_file_name = event['Records'][0]['s3']['object']['key']
+    resp = s3_client.get_object(Bucket=bucket_name,Key=s3_file_name)
+    data = resp['Body'].read().decode("utf-8")
+    Friends = data.split("\n")
+    # print(Friends)
+    for friend in Friends:
+        print(friend)
+        friend_data = friend.split(",")
+        # add to dynamodb
+        try:
+            table.put_item(
+                Item = {
+                    "Id"        : friend_data[0],
+                    "name"      : friend_data[1],
+                    "Subject"   : friend_data[2]
+                }
+            )
+        except Exception as e:
+            print("End of file")
