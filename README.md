@@ -1,9 +1,9 @@
 AWS Data Engineering projects.
 Welcome to Project 1 in AWS Data engineering projects series.
 
-This is basic level project that aims to "**To import CSV data into DynamoDB using Lambda and S3 Event Triggers**"
+This is basic level Data Engg project that aims to "**To import CSV data into DynamoDB using Lambda and S3 Event Triggers**"
 
-This is a readme file that is going to provide you summary about the Project. I have attached a PDF file that involves all the details about the services being used and also the steps used to achieve our goal.
+This is a readme file that is going to provide you summary about the Project. I have attached a PDF file that involves all the details about the services being used and also the steps used to achieve our goal. I have also attached 2 CSV files that I have used in this project and you can change the file or create your own but remember file format should be .csv as the project is for that only.
 
 As part of my learning curve on DynamoDB and its interaction with various AWS services, Here S3 event triggers an action on a Lambda function to import CSV data from S3 Bucket and do some transformation and saved into a DynamoDB table using AWS Management Console.
 
@@ -57,3 +57,14 @@ def lambda_handler(event, context):
             )
         except Exception as e:
             print("End of file")
+
+**CONCLUSION:-**
+The project "To import CSV data into DynamoDB using Lambda and S3 Event Triggers" has successfully demonstrated the power and flexibility of AWS services. 
+
+By leveraging **AWS Lambda** and **S3 Event Triggers**, we have created an automated pipeline that imports CSV data into a **DynamoDB** table. This not only simplifies the data import process but also makes it more efficient and reliable. 
+
+The use of **S3 Event Triggers** allows for real-time data processing as soon as the CSV file is uploaded to the S3 bucket. This eliminates the need for manual intervention and ensures that the DynamoDB table is always up-to-date with the latest data.
+
+The **Lambda function** serves as the backbone of this project, handling the task of reading the CSV file and writing the data to the DynamoDB table. This serverless computing service is cost-effective as it only runs when triggered, and scales automatically to handle the size of the incoming data.
+
+In conclusion, this project has effectively utilized AWS services to create a robust and scalable data import solution. It highlights the potential of cloud computing in handling large datasets and automating data workflows. Future improvements could include error handling mechanisms and optimization of the Lambda function for faster data processing. This project serves as a strong foundation for any data-driven application that requires real-time, reliable, and scalable data import functionality.
